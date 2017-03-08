@@ -38,9 +38,7 @@ var createsURL = (function(){
     //code here
   }
   return {
-    cat: generateGenreUrl,
+    generateGenreUrl: generateGenreUrl,
     generateGifUrl: generateGifUrl
   }
 })();
-
-console.log(createsURL);
