@@ -9,3 +9,9 @@ QUnit.module( "See if function generateGenreUrl works", function (asserts) {
       asserts.equal(createsURL.generateGenreUrl(28), 'https://api.themoviedb.org/3/genre/28/movies?api_key=a2230c2d2bfec8e19602e73fa268f106&language=en-US&include_adult=false&sort_by=created_at.asc', 'this creates the correct url');
     });
 });
+
+QUnit.module( "See if function generateGifUrl works", function (asserts) {
+  QUnit.test('if movie is title, return the corrent url', function(asserts) {
+      asserts.equal(createsURL.generateGifUrl('title'), 'http://api.giphy.com/v1/gifs/search?q=title&api_key=dc6zaTOxFJmzC', 'this creates the correct url');
+    });
+});
