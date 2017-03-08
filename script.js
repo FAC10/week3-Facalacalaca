@@ -1,6 +1,6 @@
 //Generic API Module Code
-var apiCall = (function(){
-    function apiGet(url, cb){
+var api = (function(){
+    function apiCall(method, url, cb){
         var xhr = new XMLHttpRequest();
         xhr.onreadystatechange = function(){
             if(xhr.readyState == 4 && xhr.status == 200){
@@ -10,11 +10,11 @@ var apiCall = (function(){
               console.log("Waiting for response");
             }
         };
-        xhr.open("GET", url, true);
+        xhr.open(method, url, true);
         xhr.send();
     }
     return {
-      apiGet:apiGet
+      apiCall:apiCall
     };
 })();
 
@@ -45,3 +45,8 @@ var createsURL = (function(){
     generateGifUrl: generateGifUrl
   }
 })();
+
+// //translate genre into id number
+// var translateGenreToId = (function(){
+//   function
+// })()
