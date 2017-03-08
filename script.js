@@ -34,8 +34,11 @@ var createsURL = (function(){
     var url = 'https://api.themoviedb.org/3/genre/' + id +'/movies?api_key=a2230c2d2bfec8e19602e73fa268f106&language=en-US&include_adult=false&sort_by=created_at.asc';
     return url;
   }
-  function generateGifUrl(){
-    //code here
+
+  function generateGifUrl(movie){
+    var url = 'http://api.giphy.com/v1/gifs/search?q=' + movie
+    +'&api_key=dc6zaTOxFJmzC';
+    return url;
   }
   return {
     generateGenreUrl: generateGenreUrl,
