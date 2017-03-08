@@ -21,6 +21,8 @@ We are developing a web app for a movie enthusiast with the following requiremen
 ## The Process
 
 1. We sketched out the design of the site and decided exactly what we wanted it to do.
-2. Together we worked on the architecture of the code.
+2. Together we worked on the architecture of the code:
+![whatsapp image 2017-03-08 at 14 25 25](https://cloud.githubusercontent.com/assets/16895125/23707806/97e75772-040b-11e7-8410-eb3dc897de31.jpeg)
+
 
 ## Interesting things we have learnt
