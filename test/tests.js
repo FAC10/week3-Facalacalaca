@@ -16,3 +16,15 @@ QUnit.module( "See if function generateGifUrl works and encodedes the space char
       asserts.equal(createsURL.generateGifUrl('Jurassic Park'), 'http://api.giphy.com/v1/gifs/search?q=&api_key=dc6zaTOxFJmzC&lang=en&limit=3&q=Jurassic%20Park', 'This creates the correct url');
     });
 });
+
+QUnit.module( "See if function generateTrailerObjectUrl works", function (asserts) {
+  QUnit.test('If the movie id is 263115, return the correct url', function(asserts) {
+      asserts.equal(createsURL.generateTrailerObjectUrl(263115), 'https://api.themoviedb.org/3/movie/263115/videos?api_key=a2230c2d2bfec8e19602e73fa268f106&language=en-US', 'This creates the correct url');
+    });
+});
+//
+//
+// QUnit.module( "See if function generateTrailerUrl works", function (asserts) {generateTrailerUrl
+//       asserts.equal(createsURL.generateTrailerUrl('ot2X367CtO4'), 'https://youtube.com/watch?v=ot2X367CtO4', 'This creates the correct url');
+//     });
+// });

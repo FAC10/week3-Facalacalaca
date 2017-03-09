@@ -117,7 +117,10 @@ var createsURL = (function(){
   return {
     genreId: genreId,
     generateGenreUrl: generateGenreUrl,
-    generateGifUrl: generateGifUrl
+    generateGifUrl: generateGifUrl,
+    generateTrailerObjectUrl: generateTrailerObjectUrl,
+    generateTrailerUrl: generateTrailerUrl
+
   };
 })();
 
