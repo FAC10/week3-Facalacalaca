@@ -5,13 +5,14 @@ QUnit.module( "Check to see if tests are working", function (asserts) {
 });
 
 QUnit.module( "See if function generateGenreUrl works", function (asserts) {
-  QUnit.test('if id is 28, return the corrent url', function(asserts) {
+  QUnit.test('if id is 28, return the correct url', function(asserts) {
       asserts.equal(createsURL.generateGenreUrl(28), 'https://api.themoviedb.org/3/genre/28/movies?api_key=a2230c2d2bfec8e19602e73fa268f106&language=en-US&include_adult=false&sort_by=created_at.asc', 'this creates the correct url');
     });
 });
 
-QUnit.module( "See if function generateGifUrl works", function (asserts) {
-  QUnit.test('if movie is title, return the corrent url', function(asserts) {
-      asserts.equal(createsURL.generateGifUrl('title'), 'http://api.giphy.com/v1/gifs/search?q=title&api_key=dc6zaTOxFJmzC', 'this creates the correct url');
+
+QUnit.module( "See if function generateGifUrl works and encodedes the space characters", function (asserts) {
+  QUnit.test('If movie is Jurassic Park, return the correct url', function(asserts) {
+      asserts.equal(createsURL.generateGifUrl('Jurassic Park'), 'http://api.giphy.com/v1/gifs/search?q=&api_key=dc6zaTOxFJmzC&lang=en&limit=3&q=Jurassic%20Park', 'This creates the correct url');
     });
 });
