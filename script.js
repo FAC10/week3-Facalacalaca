@@ -64,10 +64,20 @@ var createsURL = (function(){
   }
 
   function generateGifUrl(movie){
-    var url = 'http://api.giphy.com/v1/gifs/search?q=' + movie
-    +'&api_key=dc6zaTOxFJmzC';
+    var url = 'http://api.giphy.com/v1/gifs/search?q=&api_key=dc6zaTOxFJmzC&lang=en&limit=3&q=' + encodeURICompnent(movie);
     return url;
   }
+
+  function generateTrailerObjectUrl(movie_id){
+    var url = 'https://api.themoviedb.org/3/movie/' + movie_id +'/videos?api_key=a2230c2d2bfec8e19602e73fa268f106&language=en-US';
+    return url;
+  }
+
+  function generateTrailerUrl(filmKey){
+    var url = 'https://youtube.com/watch?v=' + filmKey;
+    return url;
+  }
+
   return {
     genreId: genreId,
     generateGenreUrl: generateGenreUrl,
