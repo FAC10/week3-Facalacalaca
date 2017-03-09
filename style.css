@@ -70,11 +70,13 @@ html{
 
 .moviecontent{
   display: flex;
+  flex-direction: row;
+  justify-content: space-around;
   height: 10vh;
   width: 90%;
   margin-left: auto;
   margin-right: auto;
-  background: red;
+  background-color: rgba(0, 0, 0, 0.4)
 }
 
 
