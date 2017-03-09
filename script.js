@@ -68,11 +68,6 @@ return {
 
 })();
 
-
-
-
-
-
 //create url
 var createsURL = (function(){
 
@@ -100,14 +95,6 @@ var createsURL = (function(){
   };
 })();
 
-//translate genre into id number
-
-var translateGenreToId = (function(){
-  function idConverter() {
-
-
-  }
-})();
 
 //Beginning of webapp Process
 var start = (function(){
@@ -149,4 +136,6 @@ var populateGifs = function(object) {
         imageTag.src = gifUrl;
         imageTag.classList.add('gifs');
         search_results.appendChild(imageTag);
-}};
+
+}
+};
