@@ -56,6 +56,8 @@ var createMovieList = (function() {
             var section = document.createElement('section');
             section.classList.add('moviecontent');
             e.target.appendChild(section);
+
+            //Gif callback
             api.apiCall("GET", createsURL.generateGifUrl(e.target.innerText), function a(object) {
                 for (var i = 0; i < 3; i++) {
                     var gifUrl = object.data[i].images.fixed_width_small.url;
@@ -66,6 +68,18 @@ var createMovieList = (function() {
 
                 }
             });
+
+            console.log(e.target.value  );
+            //movieTrailer callback
+             api.apiCall("GET", createsURL.generateTrailerObjectUrl(e.target.value), (function(obj){
+
+                var src = createsURL.generateTrailerUrl(obj.results[0].key);
+                var iframe = document.createElement('iframe');
+                iframe.src= src;
+                section.appendChild(iframe);
+
+             }));
+
 
         }
     }
@@ -88,6 +102,7 @@ var createMovieList = (function() {
                 eventListener.createEventListener(li, 'click', appendSection);
                 ul.appendChild(li);
                 li.textContent = val[i].title;
+                li.value = val[i].id;
                 i++;
             });
         }
@@ -141,7 +156,8 @@ var createsURL = (function() {
     }
 
     function generateTrailerUrl(filmKey) {
-        var url = 'https://youtube.com/watch?v=' + filmKey;
+        var url = 'https://www.youtube.com/embed/' + filmKey;
+        console.log(url);
         return url;
     }
 
@@ -162,7 +178,7 @@ var start = (function() {
     //Attach listeners
     eventListener.createEventListener(document.getElementById('form'), 'submit', (function() {
         api.apiCall('GET', createsURL.generateGenreUrl(input.inputValue()), (function(o) {
-
+            console.log(o);
             createMovieList.appendList(o.results, o.results);
 
         }));
