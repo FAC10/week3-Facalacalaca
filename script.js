@@ -85,7 +85,7 @@ var createsURL = (function(){
 
   function generateGifUrl(movie){
 
-    var url = 'http://api.giphy.com/v1/gifs/search?q=&api_key=dc6zaTOxFJmzC&lang=en&limit=3&q=' + encodeURICompnent(movie);
+    var url = 'http://api.giphy.com/v1/gifs/search?q=&api_key=dc6zaTOxFJmzC&lang=en&limit=3&q=' + encodeURIComponent(movie);
     return url;
   }
   return {
@@ -136,5 +136,6 @@ var populateGifs = function(object) {
         imageTag.src = gifUrl;
         imageTag.classList.add('gifs');
         search_results.appendChild(imageTag);
+
 }
 };
