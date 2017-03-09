@@ -26,3 +26,9 @@ We are developing a web app for a movie enthusiast with the following requiremen
 
 
 ## Interesting things we have learnt
+
+* The JavaScript encodeURI() encodeURIComponent() functions encode special characters
+
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/encodeURIComponent
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/encodeURI
+http://stackoverflow.com/questions/332872/encode-url-in-javascript
