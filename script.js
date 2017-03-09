@@ -1,6 +1,5 @@
 function getElement(id){return document.getElementById(id);}
 function elementClass(name){return document.getElementsByClassName(name);}
-
 //Generic API Module Code
 var api = (function(){
     function apiCall(method, url, cb){
@@ -38,29 +37,43 @@ var input = (function(){
 var createMovieList = (function(){
 
   function appendSection(e) {
+
+    var movieTitles = elementClass('movielist__item');
+
+    for (var i = 0; i<movieTitles.length; i++){
+        if(movieTitles[i].childNodes.length>1){
+        movieTitles[i].childNodes[1].remove();
+      }
+    }
+
+    //Stops appending duplicate sections
     if(e.target.childNodes.length<2){
      var section = document.createElement('section');
      section.classList.add('moviecontent');
      e.target.appendChild(section);
-      console.dir(e.target);
     }
   }
 
     function appendList(arr, val){
       var i = 0;
       var ul = document.createElement('ul');
+      ul.classList.add('movie__ul');
       var movieList  = document.getElementById('movieList');
-      movieList.appendChild(ul);
 
+      if(movieList.childNodes.length>1){movieList.childNodes[1].remove();}
 
-      arr.forEach(function(el){
-        var li = document.createElement('li');
-        li.classList.add('movielist__item');
-        eventListener.createEventListener(li, 'click', appendSection);
-        ul.appendChild(li);
-        li.textContent = val[i].title;
-        i++;
-      });
+      if(movieList.childNodes.length===1){
+        movieList.appendChild(ul);
+        arr.forEach(function(el){
+          var li = document.createElement('li');
+          li.classList.add('movielist__item');
+          eventListener.createEventListener(li, 'click', appendSection);
+          ul.appendChild(li);
+          li.textContent = val[i].title;
+          i++;
+        });
+      }
+
 
 }
 

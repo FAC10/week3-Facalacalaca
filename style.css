@@ -37,7 +37,7 @@ html{
   align-items: center;
 }
 
-ul{
+.movie__ul{
   list-style-type: none;
   font-size: 2rem;
   display: flex;
