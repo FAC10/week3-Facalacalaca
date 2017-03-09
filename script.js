@@ -31,7 +31,30 @@ var input = (function(){
 })();
 
 
+//Movielist module
+var createMovieList = (function(){
 
+
+    function appendList(arr, val){
+      var i = 0;
+      var ul = document.createElement('ul');
+      var movieList  = document.getElementById('movieList');
+      movieList.appendChild(ul);
+
+      arr.forEach(function(el){
+        var li = document.createElement('li');
+        ul.appendChild(li);
+        li.textContent = val[i].title;
+        i++;
+      });
+
+    }
+
+return {
+  appendList: appendList
+};
+
+})();
 //addEventListener
 var eventListener = (function(){
 
@@ -91,7 +114,11 @@ var start = (function(){
 
 //Attach listeners
  eventListener.createEventListener(document.getElementById('form'), 'submit', (function(){
-   api.apiCall('GET', createsURL.generateGenreUrl(input.inputValue()), console.log );
+   api.apiCall('GET', createsURL.generateGenreUrl(input.inputValue()), (function(o){
+
+      createMovieList.appendList(o.results, o.results);
+
+   }));
 
  }));
 
