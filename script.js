@@ -46,13 +46,6 @@ return {
 
 
 
-//Beginning of webapp Process
-var start = (function(){
-
-  eventListener.createEventListener(document.getElementById('form'), 'submit', input.inputValue);
-
-
-})();
 
 
 
@@ -89,4 +82,26 @@ var translateGenreToId = (function(){
 
 
   }
+})();
+
+//Beginning of webapp Process
+var start = (function(){
+
+//  eventListener.createEventListener(document.getElementById('form'), 'submit', input.inputValue);
+
+api.apiCall("GET", createsURL.genreId(), function(object){
+
+  var select = document.getElementById('select');
+
+      object.genres.forEach(function(element){
+          //Create element module
+          var option = document.createElement('option');
+          select.appendChild(option);
+          option.textContent = element.name;
+          option.value = element.id;
+      });
+
+});
+
+
 })();
