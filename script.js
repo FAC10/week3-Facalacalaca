@@ -68,11 +68,6 @@ return {
 
 })();
 
-
-
-
-
-
 //create url
 var createsURL = (function(){
 
@@ -100,14 +95,6 @@ var createsURL = (function(){
   };
 })();
 
-//translate genre into id number
-
-var translateGenreToId = (function(){
-  function idConverter() {
-
-
-  }
-})();
 
 //Beginning of webapp Process
 var start = (function(){
@@ -142,11 +129,12 @@ api.apiCall("GET", createsURL.genreId(), function(object){
 
 // Function that will populate the elemnt with 3 Gifs of the same width
 var populateGifs = function(object) {
-  var search-results = document.querySelector('.search-results');
+  var search_results = document.querySelector('.search-results');
     for (var i = 0; i < 3; i++) {
         var gifUrl = json.data[i].images.fixed_width_small.url;
         var imageTag = document.createElement('img');
         imageTag.src = gifUrl;
         imageTag.classList.add('gifs');
-        search-results.appendChild(imageTag);
+        search_results.appendChild(imageTag);
 }
+};
