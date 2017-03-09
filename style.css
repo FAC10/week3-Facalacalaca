@@ -2,6 +2,14 @@
   box-sizing: inherit;
 }
 
+body {
+  background-image: url(assets/Movies.jpg);
+  background-repeat: repeat;
+  background-position: center;
+  background-size: cover;
+  height: 100vh;
+}
+
 html{
   box-sizing: border-box;
   margin: 0;
