@@ -146,7 +146,7 @@ var createsURL = (function() {
     }
 
     function generateGifUrl(movie) {
-        var url = 'http://api.giphy.com/v1/gifs/search?q=&api_key=dc6zaTOxFJmzC&lang=en&limit=3&q=' + encodeURIComponent(movie);
+        var url = 'http://api.giphy.com/v1/gifs/search?q=&api_key=dc6zaTOxFJmzC&lang=en&limit=3&q=' + encodeURIComponent(movie+'film');
         return url;
     }
 
