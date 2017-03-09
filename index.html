@@ -6,28 +6,33 @@
     <meta name="description" content="Facalacalaca week 3 API Project">
     <meta name="keywords" content="FAC, Facalacalaca, API, week 3, Project">
     <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css?family=Oswald|Roboto" rel="stylesheet">
     <title>Api</title>
 </head>
 
 <body>
-  <h1> Facalacalaca Movie Database </h1>
-  <h2 class = "search-selection"> Select Genre </h2>
-  <form id="form" class = "search-selection">
-    <select id="select">
-    
-    </select>
-    <input type="submit" value="Submit">
-  </form>
-  <div class="search-results">
-      <p>xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx </p>
-      <p>yyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy</p>
-      <p>zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz</p>
-  </div>
-  <!-- <footer>
-    <img class="background-styling" src="./assets/film reel.png" alt="Film Reel Picture">
-  </footer> -->
+    <header class="header">
+        <h1 class="header__heading"> Facalacalaca Movie Database </h1>
+    </header>
 
-  <script type="text/javascript" src="script.js"></script>
+    <main class="main">
+        <h2 class="search-selection"> Select Genre </h2>
+        <form id="form" class="search-selection">
+            <select id="select">
+
+      </select>
+            <input type="submit" value="Submit">
+        </form>
+        <div id="movieList" class="search-results">
+
+        </div>
+        <footer class="footer">
+            <img class="footer__image" src="./assets/film reel.png" alt="Film Reel Picture">
+        </footer>
+    </main>
+
+
+    <script type="text/javascript" src="script.js"></script>
 
 </body>
 
