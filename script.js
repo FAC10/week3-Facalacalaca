@@ -1,11 +1,14 @@
+// Generic function retrieving DOM element
 function getElement(id) {
     return document.getElementById(id);
 }
 
+// Generic function retrieving DOM class
 function elementClass(name) {
     return document.getElementsByClassName(name);
 }
-//Generic API Module Code
+
+//Generic API Module Code to retrieve responseText given a specific URL
 var api = (function() {
     function apiCall(method, url, cb) {
         var xhr = new XMLHttpRequest();
@@ -24,11 +27,10 @@ var api = (function() {
     };
 })();
 
-//Input Value module
+//Input Value module retrieving the ID of the genre
 var input = (function() {
     function inputValue() {
         window.event.preventDefault();
-        console.log(window.event.target[0].value);
         return window.event.target[0].value;
     }
     return {
@@ -44,13 +46,14 @@ var createMovieList = (function() {
 
         var movieTitles = elementClass('movielist__item');
 
+        //Stops appending duplicate sections
         for (var i = 0; i < movieTitles.length; i++) {
             if (movieTitles[i].childNodes.length > 1) {
                 movieTitles[i].childNodes[1].remove();
             }
         }
 
-        //Stops appending duplicate sections
+
         //Maybe add film
         if (e.target.childNodes.length < 2) {
             var section = document.createElement('section');
