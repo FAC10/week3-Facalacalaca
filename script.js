@@ -60,8 +60,8 @@ var createMovieList = (function() {
             api.apiCall("GET", createsURL.generateTrailerObjectUrl(e.target.value), gif_trailer.youtubeEmbed);
         }
     }
-
-    function appendList(arr, val) {
+        // appendList below creates te genre list
+    function appendList(arr) {
         var i = 0;
         var ul = document.createElement('ul');
         ul.classList.add('movie__ul');
@@ -78,8 +78,8 @@ var createMovieList = (function() {
                 li.classList.add('movielist__item');
                 eventListener.createEventListener(li, 'click', appendSection);
                 ul.appendChild(li);
-                li.textContent = val[i].title;
-                li.value = val[i].id;
+                li.textContent = arr[i].title;
+                li.value = arr[i].id;
                 i++;
             });
         }
@@ -143,7 +143,7 @@ var start = (function() {
     eventListener.createEventListener(document.getElementById('form'), 'submit', (function() {
 
         api.apiCall('GET', createsURL.generateGenreUrl(input.inputValue()), (function(genreObject) {
-            createMovieList.appendList(genreObject.results, genreObject.results);
+            createMovieList.appendList(genreObject.results);
         }));
     }));
 
