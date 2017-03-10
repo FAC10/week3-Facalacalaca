@@ -1,5 +1,8 @@
 * {
   box-sizing: inherit;
+  font-family: 'Oswald';
+  color: white;
+  text-align: center;
 }
 
 body {
@@ -16,10 +19,41 @@ html{
   padding: 0;
 }
 
-.header{
+#select{
+  color: black;
+}
+
+.movielist__item:hover{
+  text-decoration: underline;
+}
+
+.search-results{
+  background-color:rgba(0, 0, 0, 0.5);
+  margin: 1em;
+}
+
+.header__background-box{
   display: flex;
   justify-content: center;
-  font-family:
+  background-color:rgba(0, 0, 0, 0.5);
+  width: 30em;
+  margin: 0 auto;
+  margin-top: 15px;
+  text-align: center;
+}
+
+/*.main{
+  display: flex;
+  justify-content: center;
+  background-color:rgba(0, 0, 0, 0.5);
+  width: 40em;
+  margin: 0 auto;
+  margin-top: 15px;
+  text-align: center
+}*/
+
+.dropdown{
+  color: black;
 }
 
 .footer{
