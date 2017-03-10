@@ -192,12 +192,16 @@ var start = (function() {
 var gif_trailer = (function(){
 
   function gif(object) {
+    var figure = document.createElement('figure');
     for (var i = 0; i < 3; i++) {
         var gifUrl = object.data[i].images.fixed_width_small.url;
         var imageTag = document.createElement('img');
         imageTag.src = gifUrl;
+        imageTag.alt = 'MovieGif';
         imageTag.classList.add('gifs');
-        elementClass('moviecontent')[0].appendChild(imageTag);
+        figure.classList.add('gif__figure');
+        elementClass('moviecontent')[0].appendChild(figure);
+        figure.appendChild(imageTag);
     }
   }
 
@@ -206,6 +210,7 @@ var gif_trailer = (function(){
      var src = createsURL.generateTrailerUrl(obj.results[0].key);
      var iframe = document.createElement('iframe');
      iframe.src= src;
+     iframe.classList.add('youtube');
      elementClass('moviecontent')[0].appendChild(iframe);
 
   }
