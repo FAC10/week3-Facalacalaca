@@ -13,7 +13,7 @@ QUnit.module( "See if function generateGenreUrl works", function (asserts) {
 
 QUnit.module( "See if function generateGifUrl works and encodedes the space characters", function (asserts) {
   QUnit.test('If movie is Jurassic Park, return the correct url', function(asserts) {
-      asserts.equal(createsURL.generateGifUrl('Jurassic Park'), 'http://api.giphy.com/v1/gifs/search?q=&api_key=dc6zaTOxFJmzC&lang=en&limit=3&q=Jurassic%20Park', 'This creates the correct url');
+      asserts.equal(createsURL.generateGifUrl('Jurassic Park'), 'http://api.giphy.com/v1/gifs/search?q=&api_key=dc6zaTOxFJmzC&lang=en&limit=3&q=Jurassic%20Parkfilm', 'This creates the correct url');
     });
 });
 
@@ -25,6 +25,6 @@ QUnit.module( "See if function generateTrailerObjectUrl works", function (assert
 
 QUnit.module( "See if function generateTrailerUrl works", function (asserts) {
     QUnit.test('If the value of the key is ot2X367CtO4, return the correct url - Logan', function(asserts) {
-      asserts.equal(createsURL.generateTrailerUrl('ot2X367CtO4'), 'https://youtube.com/watch?v=ot2X367CtO4', 'This creates the correct url');
+      asserts.equal(createsURL.generateTrailerUrl('ot2X367CtO4'), 'https://www.youtube.com/embed/ot2X367CtO4', 'This creates the correct url');
     });
 });
