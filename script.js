@@ -163,9 +163,8 @@ var start = (function() {
 
     //Attach listeners
     eventListener.createEventListener(document.getElementById('form'), 'submit', (function() {
-        api.apiCall('GET', createsURL.generateGenreUrl(input.inputValue()), (function(o) {
-            console.log(o);
-            createMovieList.appendList(o.results, o.results);
+        api.apiCall('GET', createsURL.generateGenreUrl(input.inputValue()), (function(genreObject) {
+            createMovieList.appendList(genreObject.results, genreObject.results);
 
         }));
 
