@@ -160,24 +160,36 @@ var start = (function() {
 })();
 
 // Module that contains functions that will populate the elemnt with 3 Gifs and a trailer
-var gif_trailer = (function() {
-    function gif(object) {
-        for (var i = 0; i < 3; i++) {
-            var gifUrl = object.data[i].images.fixed_width_small.url;
-            var imageTag = document.createElement('img');
-            imageTag.src = gifUrl;
-            imageTag.classList.add('gifs');
-            elementClass('moviecontent')[0].appendChild(imageTag);
-        }
+var gif_trailer = (function(){
+
+  function gif(object) {
+    var figure = document.createElement('figure');
+    for (var i = 0; i < 3; i++) {
+        var gifUrl = object.data[i].images.fixed_width_small.url;
+        var imageTag = document.createElement('img');
+        imageTag.src = gifUrl;
+        imageTag.alt = 'MovieGif';
+        imageTag.classList.add('gifs');
+        figure.classList.add('gif__figure');
+        elementClass('moviecontent')[0].appendChild(figure);
+        figure.appendChild(imageTag);
     }
-    function youtubeEmbed(obj) {
-        var src = createsURL.generateTrailerUrl(obj.results[0].key);
-        var iframe = document.createElement('iframe');
-        iframe.src = src;
-        elementClass('moviecontent')[0].appendChild(iframe);
-    }
-    return {
-        gif: gif,
-        youtubeEmbed: youtubeEmbed
-    };
+  }
+
+  function youtubeEmbed(obj){
+
+     var src = createsURL.generateTrailerUrl(obj.results[0].key);
+     var iframe = document.createElement('iframe');
+     iframe.src= src;
+     iframe.classList.add('youtube');
+     elementClass('moviecontent')[0].appendChild(iframe);
+
+  }
+
+  return {
+    gif: gif,
+    youtubeEmbed: youtubeEmbed
+  };
+
+
 })();
