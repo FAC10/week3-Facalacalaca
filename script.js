@@ -28,7 +28,6 @@ var api = (function() {
 var input = (function() {
     function inputValue() {
         window.event.preventDefault();
-        console.log(window.event.target[0].value);
         return window.event.target[0].value;
     }
     return {
@@ -124,7 +123,6 @@ var createsURL = (function() {
 
     function generateGenreUrl(id) {
         var url = 'https://api.themoviedb.org/3/genre/' + id + '/movies?api_key=a2230c2d2bfec8e19602e73fa268f106&language=en-US&include_adult=false&sort_by=created_at.asc';
-        console.log(url);
         return url;
     }
 
@@ -140,7 +138,6 @@ var createsURL = (function() {
 
     function generateTrailerUrl(filmKey) {
         var url = 'https://www.youtube.com/embed/' + filmKey;
-        console.log(url);
         return url;
     }
 
@@ -161,7 +158,6 @@ var start = (function() {
     //Attach listeners
     eventListener.createEventListener(document.getElementById('form'), 'submit', (function() {
         api.apiCall('GET', createsURL.generateGenreUrl(input.inputValue()), (function(o) {
-            console.log(o);
             createMovieList.appendList(o.results, o.results);
 
         }));
