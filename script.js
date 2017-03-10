@@ -38,14 +38,10 @@ var input = (function() {
     };
 })();
 
-
 //Movielist module
 var createMovieList = (function() {
-
     function appendSection(e) {
-
         var movieTitles = elementClass('movielist__item');
-
         //Stops appending duplicate sections
         for (var i = 0; i < movieTitles.length; i++) {
             if (movieTitles[i].childNodes.length > 1) {
@@ -53,20 +49,15 @@ var createMovieList = (function() {
             }
         }
 
-
         //Maybe add film
         if (e.target.childNodes.length < 2) {
             var section = document.createElement('section');
             section.classList.add('moviecontent');
             e.target.appendChild(section);
-
             //Gif callback
             api.apiCall("GET", createsURL.generateGifUrl(e.target.innerText), gif_trailer.gif);
-
             //movieTrailer callback
-             api.apiCall("GET", createsURL.generateTrailerObjectUrl(e.target.value), gif_trailer.youtubeEmbed);
-
-
+            api.apiCall("GET", createsURL.generateTrailerObjectUrl(e.target.value), gif_trailer.youtubeEmbed);
         }
     }
 
@@ -92,34 +83,25 @@ var createMovieList = (function() {
                 i++;
             });
         }
-
-
     }
-
-
     return {
         appendList: appendList,
         appendSection: appendSection
     };
-
 })();
+
 //addEventListener
 var eventListener = (function() {
-
     function createEventListener(element, action, cb) {
         element.addEventListener(action, cb);
     }
-
     return {
         createEventListener: createEventListener
     };
-
 })();
 
 //create url
 var createsURL = (function() {
-
-
     function genreId() {
         var url = "https://api.themoviedb.org/3/genre/movie/list?api_key=a2230c2d2bfec8e19602e73fa268f106&language=en-US";
         return url;
@@ -131,7 +113,7 @@ var createsURL = (function() {
     }
 
     function generateGifUrl(movie) {
-        var url = 'http://api.giphy.com/v1/gifs/search?q=&api_key=dc6zaTOxFJmzC&lang=en&limit=3&q=' + encodeURIComponent(movie+'film');
+        var url = 'http://api.giphy.com/v1/gifs/search?q=&api_key=dc6zaTOxFJmzC&lang=en&limit=3&q=' + encodeURIComponent(movie + 'film');
         return url;
     }
 
@@ -151,30 +133,22 @@ var createsURL = (function() {
         generateGifUrl: generateGifUrl,
         generateTrailerObjectUrl: generateTrailerObjectUrl,
         generateTrailerUrl: generateTrailerUrl
-
     };
 })();
 
 
 //Beginning of webapp Process
 var start = (function() {
-
     //Attach listeners
     eventListener.createEventListener(document.getElementById('form'), 'submit', (function() {
 
         api.apiCall('GET', createsURL.generateGenreUrl(input.inputValue()), (function(genreObject) {
             createMovieList.appendList(genreObject.results, genreObject.results);
-
         }));
-
     }));
 
-
-
     api.apiCall("GET", createsURL.genreId(), function(object) {
-
         var select = document.getElementById('select');
-
         object.genres.forEach(function(element) {
             //Create element module
             var option = document.createElement('option');
@@ -182,10 +156,7 @@ var start = (function() {
             option.textContent = element.name;
             option.value = element.id;
         });
-
     });
-
-
 })();
 
 // Module that contains functions that will populate the elemnt with 3 Gifs and a trailer
